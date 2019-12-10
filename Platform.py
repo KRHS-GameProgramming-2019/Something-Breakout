@@ -2,7 +2,7 @@ import pygame, sys, math
 from Ball import *
 
 class PlayerBall(Ball):
-    def __init__(self, maxSpeed=4, startPos=[0,0]):
+    def __init__(self, maxSpeed=4, startPos=[450,700]):
         Ball.__init__(self, [0,0], startPos)
         self.frame = 0
         self.frameMax = len(self.images) -1
