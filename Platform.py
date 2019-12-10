@@ -1,4 +1,3 @@
-#alex wuz heeer
 import pygame, sys, math
 from Ball import *
 
