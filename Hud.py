@@ -1,3 +1,4 @@
+# This will be our heads up display, and will include most public values
 import pygame, sys, math
 
 class Hud():
