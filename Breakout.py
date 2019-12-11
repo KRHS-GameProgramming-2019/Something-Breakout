@@ -43,20 +43,12 @@ while True:
                 player.goKey("left")
             elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
                 player.goKey("right")
-            elif event.key == pygame.K_w or  event.key == pygame.K_UP:
-                player.goKey("up")
-            elif event.key == pygame.K_s or  event.key == pygame.K_DOWN:
-                player.goKey("down")
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
                 player.goKey("sleft")
             elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
                 player.goKey("sright")
-            elif event.key == pygame.K_w or  event.key == pygame.K_UP:
-                player.goKey("sup")
-            elif event.key == pygame.K_s or  event.key == pygame.K_DOWN:
-                player.goKey("sdown")
-    
+
     time += 1
     counter += 1
     if counter >= 10:
