@@ -1,3 +1,4 @@
+# We will modify this ball code to create our ball 
 import pygame, sys, math
 
 class Ball():

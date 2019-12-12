@@ -1,3 +1,4 @@
+#This will be the main game loop. Function and Classes will be outsourced from here
 import pygame, sys, math, random
 from Ball import *
 from Platform import *
