@@ -1,4 +1,5 @@
 import pygame, sys, math
+# this will be the platform
 from Ball import *
 
 class PlayerBall(Ball):
