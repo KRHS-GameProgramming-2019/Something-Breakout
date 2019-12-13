@@ -26,7 +26,7 @@ pics = ["images/gameBall/ball.png",
          #]       
 
 counter = 0;
-player = PlayerBall(4, [900/2, 700/2])
+player = PlayerBall(4, [900, 700])
 balls = [player]
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[900-200, 0])
@@ -47,9 +47,8 @@ while True:
                 player.goKey("sleft")
             elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
                 player.goKey("sright")
-        elif event.type == pygame.MOUSEMOTION:
-        
-            
+        #elif event.type == pygame.MOUSEMOTION:
+
     time += 1
     counter += 1
     if counter >= 10:
