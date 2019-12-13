@@ -4,7 +4,7 @@ from Ball import *
 
 class PlayerBall(Ball):
     def __init__(self, maxSpeed=4, startPos=[450,700]):
-        Ball.__init__(self, [0,0], startPos)
+        Ball.__init__(self, [50,100], startPos)
         self.frame = 0
         self.frameMax = len(self.images) -1
         self.image = self.images[self.frame]
@@ -18,18 +18,15 @@ class PlayerBall(Ball):
             self.speedx = -self.maxSpeed
         elif direction == "right":
             self.speedx = self.maxSpeed
-        elif direction == "up":
-            self.speedy = -self.maxSpeed
-        elif direction == "down":
-            self.speedy = self.maxSpeed
         elif direction == "sleft":
             self.speedx = 0
         elif direction == "sright":
             self.speedx = 0
-        elif direction == "sup":
-            self.speedy = 0
-        elif direction == "sdown":
-            self.speedy = 0
+    
+    pygame.init()
+    pygame.mouse.set_pos([0,0])
+    pygame.mouse.get_pos()
+    pygame.mouse.get_rel()
     
     def update(self, size):
         self.move()
