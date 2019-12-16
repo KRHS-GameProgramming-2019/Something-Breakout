@@ -23,10 +23,8 @@ class PlayerBall(Ball):
         elif direction == "sright":
             self.speedx = 0
     
-    pygame.init()
-    pygame.mouse.set_pos([0,0])
-    pygame.mouse.get_pos()
-    pygame.mouse.get_rel()
+    def goMouse(self, pos):
+        self.rect.center = [pos[0], self.rect.center[1]]
     
     def update(self, size):
         self.move()

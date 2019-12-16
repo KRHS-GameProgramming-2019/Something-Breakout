@@ -47,8 +47,8 @@ while True:
                 player.goKey("sleft")
             elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
                 player.goKey("sright")
-        #elif event.type == pygame.MOUSEMOTION:
-
+        elif event.type == pygame.MOUSEMOTION:
+            player.goMouse(event.pos)
     time += 1
     counter += 1
     if counter >= 10:
