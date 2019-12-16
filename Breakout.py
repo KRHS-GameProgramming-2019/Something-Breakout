@@ -5,7 +5,7 @@ from Platform import *
 from Hud import *
 from Block import *
 pygame.init()
-if not pygame.font: print('Warning, fonts disabled')
+if not pygame.font: print("Warning, fonts disabled")
 
 clock = pygame.time.Clock();
 
