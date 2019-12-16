@@ -38,15 +38,15 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit();
-            if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
-                player.goKey("left")
-            elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
-                player.goKey("right")
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
-                player.goKey("sleft")
-            elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
-                player.goKey("sright")
+            #if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
+                #player.goKey("left")
+            #elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
+                #player.goKey("right")
+        #elif event.type == pygame.KEYUP:
+            #if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
+                #player.goKey("sleft")
+            #elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
+                #player.goKey("sright")
         elif event.type == pygame.MOUSEMOTION:
             player.goMouse(event.pos)
     time += 1
