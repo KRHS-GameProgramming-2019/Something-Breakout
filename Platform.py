@@ -13,20 +13,19 @@ class PlayerBall(Ball):
         self.maxSpeed = maxSpeed
         self.kind = "player"
         
-    def goKey(self, direction):
-        if direction == "left":
-            self.speedx = -self.maxSpeed
-        elif direction == "right":
-            self.speedx = self.maxSpeed
-        elif direction == "sleft":
-            self.speedx = 0
-        elif direction == "sright":
-            self.speedx = 0
+    #def goKey(self, direction):
+        #if direction == "left":
+            #self.speedx = -self.maxSpeed
+        #elif direction == "right":
+            #self.speedx = self.maxSpeed
+        #elif direction == "sleft":
+            #self.speedx = 0
+        #elif direction == "sright":
+            #self.speedx = 0
     
-    pygame.init()
-    pygame.mouse.set_pos([0,0])
-    pygame.mouse.get_pos()
-    pygame.mouse.get_rel()
+    def goMouse(self, pos):
+        self.rect.center = [pos[0], self.rect.center[1]]
+        pygame.mouse.set_visible(False)
     
     def update(self, size):
         self.move()
