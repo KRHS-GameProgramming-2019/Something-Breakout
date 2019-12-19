@@ -3,8 +3,7 @@ import pygame, sys, math
 
 class Ball():
     def __init__(self, speed = [0,0], startPos=[0,0]):
-        self.images = [pygame.image.load("images/gameBall/OrangeBall.png"),
-                       pygame.image.load("images/gameBall/PYGameBall.png")]
+        self.images = [pygame.image.load("images/gameBall/OrangeBall.png")]
         self.frame = 0
         self.frameMax = len(self.images) -1
         self.image = self.images[self.frame]
@@ -99,4 +98,4 @@ class Ball():
         x2 = other.rect.centerx
         y1 = self.rect.centery
         y2 = other.rect.centery
-        return math.sqrt((x2-x1)**2 + (y2-y1)**2)
+        return math.sqrt((x2-x1)**2 + (y2-y1)**2) 
