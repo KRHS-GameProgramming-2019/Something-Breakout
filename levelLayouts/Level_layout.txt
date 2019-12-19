@@ -6,8 +6,8 @@ Level Layout Idea 1
 #gggGgggggggggggggg#
 #RRRRRRRRRRRRrRRRRR#
 #bbbbbbbbBbbbbbbbbb#
-#        2         # 
-#        2         #
+#AAAAAaAaaaAAAAAAAA# 
+#CCCCCCcccCcCCcCCCC#
 #        2         # 
 #        2         # 
 #        2         #
