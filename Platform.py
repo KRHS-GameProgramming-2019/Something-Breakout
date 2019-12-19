@@ -7,8 +7,9 @@ class PlayerBall(Ball):
         Ball.__init__(self, [0,0], startPos)
         self.frame = 0
         self.frameMax = len(self.images) -1
-        self.image = self.images[self.frame]
+        self.image = pygame.image.load("images/platform/IMG_0724.JPG")
         self.rect = self.image.get_rect()
+        self.image = self.images[self.frame]
 
         self.maxSpeed = maxSpeed
         self.kind = "player"

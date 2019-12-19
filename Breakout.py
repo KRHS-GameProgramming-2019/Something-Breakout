@@ -13,8 +13,8 @@ size = [900, 700]
 screen = pygame.display.set_mode(size)
 
 pics = ["images/gameBall/ball.png",
-        "Images/gameBall/PYGameBall.png"
- 
+        "images/gameBall/PYGameBall.png",
+        "images/gameBall/OrangeBall.png"
 
 ]
 
@@ -25,7 +25,7 @@ pics = ["images/gameBall/ball.png",
                 #[random.randint(100, 800), random.randint(100, 500)])
          #]       
 
-counter = 0;
+counter = 1;
 player = PlayerBall(4, [900, 700])
 balls = [player]
 score = Hud("Score: ", [0,0])
@@ -64,7 +64,7 @@ while True:
     for ball in balls:
         ball.update(size)
         
-    timer.update(int(time/60))
+    timer.update(int(time/60  ))
     score.update(kills)
         
     for hittingBall in balls:
