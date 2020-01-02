@@ -8,7 +8,7 @@ class PlayerBall(Ball):
         self.frame = 0
         self.frameMax = len(self.images) -1
         self.image = pygame.image.load("images/platform/IMG_0724.JPG")
-        self.image = pygame.transform.scale(self.image, [200,100])
+        self.image = pygame.transform.scale(self.image, [400,100])
         self.rect = self.image.get_rect()
 
         self.maxSpeed = maxSpeed
@@ -26,7 +26,7 @@ class PlayerBall(Ball):
     
     def goMouse(self, pos):
         self.rect.center = [pos[0], self.rect.center[1]]
-        pygame.mouse.set_visible(False)
+        pygame.mouse.set_visible(True)
     
     def update(self, size):
         self.move()

@@ -9,7 +9,7 @@ if not pygame.font: print("Warning, fonts disabled")
 
 clock = pygame.time.Clock();
 
-size = [900, 700]
+size = [1600, 900]
 screen = pygame.display.set_mode(size)
 
 pics = ["images/gameBall/ball.png",
@@ -27,7 +27,7 @@ pics = ["images/gameBall/ball.png",
 
 counter = 1;
 player = PlayerBall(4, [900, 700])
-balls = [player]
+balls = [player, Ball([5,5], [900/2,100])]
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[900-200, 0])
 
@@ -50,16 +50,7 @@ while True:
         elif event.type == pygame.MOUSEMOTION:
             player.goMouse(event.pos)
     time += 1
-    counter += 1
-    if counter >= 10:
-        counter = 0;
-        balls += [Ball([random.randint(-7,7), random.randint(-7,7)],
-                [random.randint(100, 700), random.randint(100, 500)])
-        ]
-        for ball in balls:
-            if balls[-1].ballCollide(ball):
-                balls.remove(balls[-1])
-                break
+    
             
     for ball in balls:
         ball.update(size)
@@ -69,10 +60,8 @@ while True:
         
     for hittingBall in balls:
         for hitBall in balls:
-            if hittingBall.ballCollide(hitBall):
-                if hittingBall.kind == "player":
-                    balls.remove(hitBall)
-                    kills += 1
+            hittingBall.ballCollide(hitBall)
+
             
             
             
