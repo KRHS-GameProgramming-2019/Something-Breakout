@@ -1,0 +1,23 @@
+Level Layout Idea 1
+
+####################
+#   Generator      #         
+#BBBBBBBBBBBBBgBBBB#
+#gggGgggggggggggggg#
+#RRRRRRRRRRRRrRRRRR#
+#bbbbbbbbBbbbbbbbbb#
+#AAAAAaAaaaAAAAAAAA# 
+#CCCCCCcccCcCCcCCCC#
+#        2         # 
+#        2         # 
+#        2         #
+#        2         #
+#        2         #
+#        2         #
+#        2         #
+#        2         #
+#        2         #
+#        2         #
+#        2         #
+********************
+####################
