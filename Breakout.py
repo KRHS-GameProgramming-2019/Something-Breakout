@@ -12,12 +12,7 @@ clock = pygame.time.Clock();
 size = [1600, 900]
 screen = pygame.display.set_mode(size)
 
-pics = ["images/gameBall/ball.png",
-        "images/gameBall/PYGameBall.png",
-        "images/gameBall/OrangeBall.png"
-        "images/platform/IMG_0724.JPG"
 
-]
 
 
 
@@ -27,7 +22,7 @@ pics = ["images/gameBall/ball.png",
          #]       
 
 counter = 1;
-player = PlayerBall(4, [900, 700])
+player = Platform(4, [900, 700])
 ball = Ball([5,5], [900/2,100])
 balls = [player, ball]
 score = Hud("Score: ", [0,0])
@@ -66,7 +61,7 @@ while True:
             
     screen.fill((100, 100, 100))
     for ball in balls:
-        screen.blit(ball.image [(50, 50)], ball.rect)
+        screen.blit(ball.image, ball.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
     pygame.display.flip()
