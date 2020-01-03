@@ -1,6 +1,5 @@
 # This is our ball 
 import pygame, sys, math
-
 class Ball():
     def __init__(self, speed = [0,0], startPos=[0,0]):
         self.images = [pygame.image.load("images/gameBall/OrangeBall.png")]
