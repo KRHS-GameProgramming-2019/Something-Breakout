@@ -2,7 +2,7 @@ import pygame, sys, math
 # this will be the platform
 from Ball import *
 
-class PlayerBall(Ball):
+class Platform(Ball):
     def __init__(self, maxSpeed=4, startPos=[1600/2,100]):
         Ball.__init__(self, [0,0], startPos)
         self.frame = 0
