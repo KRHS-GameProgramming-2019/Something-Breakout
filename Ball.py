@@ -7,7 +7,7 @@ class Ball():
         self.frame = 0
         self.frameMax = len(self.images) -1
         self.image = self.images[self.frame]
-        self.image = pygame.transform.scale(self.image,[100, 100])
+        self.image = pygame.transform.scale(self.image,[50, 50])
         self.rect = self.image.get_rect()
         self.speedx = speed[0]
         self.speedy = speed[1]
