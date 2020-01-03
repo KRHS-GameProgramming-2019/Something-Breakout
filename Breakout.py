@@ -14,7 +14,7 @@ screen = pygame.display.set_mode(size)
 
 pics = ["images/gameBall/ball.png",
         "images/gameBall/PYGameBall.png",
-        #"images/gameBall/OrangeBall.png"
+        "images/gameBall/OrangeBall.png"
         "images/platform/IMG_0724.JPG"
 
 ]
@@ -66,7 +66,7 @@ while True:
             
     screen.fill((100, 100, 100))
     for ball in balls:
-        screen.blit(ball.image, ball.rect)
+        screen.blit(ball.image [(50, 50)], ball.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
     pygame.display.flip()
