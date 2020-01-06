@@ -12,12 +12,7 @@ clock = pygame.time.Clock();
 size = [1600, 900]
 screen = pygame.display.set_mode(size)
 
-pics = ["images/gameBall/ball.png",
-        "images/gameBall/PYGameBall.png",
-        "images/gameBall/OrangeBall.png"
-        "images/platform/IMG_0724.JPG"
 
-]
 
 
 
