@@ -12,11 +12,7 @@ clock = pygame.time.Clock();
 size = [1600, 900]
 screen = pygame.display.set_mode(size)
 
-pics = ["images/gameBall/ball.png",
-        "images/gameBall/PYGameBall.png",
-        "images/gameBall/OrangeBall.png"
 
-]
 
 
 
@@ -26,11 +22,12 @@ pics = ["images/gameBall/ball.png",
          #]       
 
 counter = 1;
-player = PlayerBall(4, [900, 700])
-balls = [player, Ball([5,5], [900/2,100])]
+player = Platform(4, [900, 700])
+ball = Ball([5,5], [900/2,100])
+balls = [player, ball]
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[900-200, 0])
-
+deaths =Hud("Deaths: ",[900-50,0])
 kills = 0
 time = 0
 
@@ -58,10 +55,7 @@ while True:
     timer.update(int(time/60  ))
     score.update(kills)
         
-    for hittingBall in balls:
-        for hitBall in balls:
-            hittingBall.ballCollide(hitBall)
-
+    ball.sqCollide(player)
             
             
             
