@@ -8,9 +8,8 @@ class Platform(Ball):
         self.frame = 0
         self.frameMax = len(self.images) -1
         self.image = pygame.image.load("images/platform/IMG_0724.JPG")
-        self.image = pygame.transform.scale(self.image, [400,100])
+        self.image = pygame.transform.scale(self.image, [250,50])
         self.rect = self.image.get_rect()
-
 
         self.maxSpeed = maxSpeed
         self.kind = "player"

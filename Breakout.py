@@ -22,11 +22,15 @@ screen = pygame.display.set_mode(size)
          #]       
 
 counter = 1;
-player = Platform(4, [900, 700])
+player = Platform(4, [1600/2, 800])
 ball = Ball([5,5], [900/2,100])
 balls = [player, ball]
 score = Hud("Score: ", [0,0])
-timer = Hud("Time: ",[900-200, 0])
+timer = Hud("Time: ",[1600-180, 0])
+
+crash_sound = pygame.mixer.Sound("welcome.wav")
+pygame.mixer.music.load('welcome.wav')
+pygame.mixer.music.play(1)
 
 kills = 0
 time = 0
@@ -52,7 +56,7 @@ while True:
     for ball in balls:
         ball.update(size)
         
-    timer.update(int(time/60  ))
+    timer.update(int(time/1  ))
     score.update(kills)
         
     ball.sqCollide(player)
