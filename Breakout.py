@@ -27,7 +27,7 @@ ball = Ball([5,5], [900/2,100])
 balls = [player, ball]
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[900-200, 0])
-
+deaths =Hud("Deaths: ",[900-50,0])
 kills = 0
 time = 0
 
