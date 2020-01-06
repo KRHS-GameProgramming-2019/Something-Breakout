@@ -27,7 +27,7 @@ pics = ["images/gameBall/ball.png",
          #]       
 
 counter = 1;
-player = PlayerBall(4, [900, 700])
+player = Platform(4, [900, 700])
 ball = Ball([5,5], [900/2,100])
 balls = [player, ball]
 score = Hud("Score: ", [0,0])
