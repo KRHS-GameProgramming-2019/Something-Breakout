@@ -1,34 +1,33 @@
 import pygame, sys, math
+# this will be the platform
 from Ball import *
 
-class PlayerBall(Ball):
-    def __init__(self, maxSpeed=4, startPos=[0,0]):
+class Platform(Ball):
+    def __init__(self, maxSpeed=4, startPos=[1600/2,100]):
         Ball.__init__(self, [0,0], startPos)
         self.frame = 0
         self.frameMax = len(self.images) -1
-        self.image = self.images[self.frame]
+        self.image = pygame.image.load("images/platform/IMG_0724.JPG")
+        self.image = pygame.transform.scale(self.image, [400,100])
         self.rect = self.image.get_rect()
+
 
         self.maxSpeed = maxSpeed
         self.kind = "player"
         
-    def goKey(self, direction):
-        if direction == "left":
-            self.speedx = -self.maxSpeed
-        elif direction == "right":
-            self.speedx = self.maxSpeed
-        elif direction == "up":
-            self.speedy = -self.maxSpeed
-        elif direction == "down":
-            self.speedy = self.maxSpeed
-        elif direction == "sleft":
-            self.speedx = 0
-        elif direction == "sright":
-            self.speedx = 0
-        elif direction == "sup":
-            self.speedy = 0
-        elif direction == "sdown":
-            self.speedy = 0
+    #def goKey(self, direction):
+        #if direction == "left":
+            #self.speedx = -self.maxSpeed
+        #elif direction == "right":
+            #self.speedx = self.maxSpeed
+        #elif direction == "sleft":
+            #self.speedx = 0
+        #elif direction == "sright":
+            #self.speedx = 0
+    
+    def goMouse(self, pos):
+        self.rect.center = [pos[0], self.rect.center[1]]
+        pygame.mouse.set_visible(True)
     
     def update(self, size):
         self.move()
