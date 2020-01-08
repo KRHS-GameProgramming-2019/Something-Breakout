@@ -13,3 +13,42 @@ class Hud():
         text = self.baseText + str(score)
         self.image = self.font.render(text , 1, (0, 0, 0))
         self.rect = self.image.get_rect(topleft = self.rect.topleft)
+# Death Counter
+import pygame
+import sys
+import pygame.locals
+
+# Variables
+deathcount = float(0)
+
+pygame.init()
+BLACK = (0, 0, 0)
+WIDTH = 320
+HEIGHT = 260
+windowSurface = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
+
+windowSurface.fill(BLACK)
+
+while True:
+    events = pygame.event.get()
+    for event in events:
+        if hasattr(event, 'key'):
+            if event.key == pygame.K_1:
+                try:
+                    with open("deathcounter.txt", "r") as in_file:
+                        deathcount = int(in_file.read())
+                        deathcount = deathcount + 1
+                except (IOError, ValueError), err:
+                    print err
+                    deathcount = 0
+                with open("deathcounter.txt", "w") as out_file:
+                    out_file.write(str(deathcount))
+            if event.key == pygame.K_2:
+                deathcount = 0
+                with open("deathcounter.txt", "w") as out_file:
+                    out_file.write(str(deathcount))
+
+pass
+if event.type == pygame.event.QUIT:
+    pygame.quit()
+    sys.exit()

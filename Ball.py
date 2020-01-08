@@ -50,6 +50,7 @@ class Ball():
                 self.speedy = -self.speedy
                 self.didBounceY = True
             if self.rect.top < 0:
+                TopCollide= TopCollide+1
                 self.speedy = -self.speedy
                 self.didBounceY = True
         if not self.didBounceX:
