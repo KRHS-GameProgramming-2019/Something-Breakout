@@ -3,10 +3,10 @@ import pygame, sys, math
 
 class Hud():
     def __init__(self, baseText, startPos=[0,1]):
-        if self.kind == "score":
+        if self == "score":
             self.baseText = "Score: "
             self.file = "saves/scorecounter.txt"
-        if self.kind == "death":
+        if self == "death":
             self.baseText = "Deaths: "
             self.file = "saves/deathcounter.txt"
         pygame.font.get_fonts()
