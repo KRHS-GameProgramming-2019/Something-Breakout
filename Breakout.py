@@ -2,7 +2,7 @@
 import pygame, sys, math, random
 from Ball import *
 from Platform import *
-from Hud import *
+#from Hud import *
 from Block import *
 pygame.init()
 if not pygame.font: print("Warning, fonts disabled")
