@@ -15,7 +15,6 @@ screen = pygame.display.set_mode(size)
 
 
 
-
 #balls += [Ball(pics[random.randint(0, len(pics)-1)], 
                 #[random.randint(-7,7), random.randint(-7,7)],
                 #[random.randint(100, 800), random.randint(100, 500)])
