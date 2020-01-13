@@ -24,10 +24,10 @@ screen = pygame.display.set_mode(size)
 counter = 1;
 player = Platform(4, [1600/2, 800])
 ball = Ball([5,5], [900/2,100])
-balls = [player, ball]
+balls = [player, ball];
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[1600-200, 0])
-deaths = Hud("Deaths: ",[1600-180,0])
+deaths= Hud("Deaths: ",[1600-180,0])
 
 crash_sound = pygame.mixer.Sound("welcome.wav")
 pygame.mixer.music.load('welcome.wav')
