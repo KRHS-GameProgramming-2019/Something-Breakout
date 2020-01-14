@@ -2,7 +2,7 @@
 import pygame, sys, math, random
 from Ball import *
 from Platform import *
-from Hud import *
+#from Hud import *
 from Block import *
 pygame.init()
 if not pygame.font: print("Warning, fonts disabled")
@@ -11,7 +11,6 @@ clock = pygame.time.Clock();
 
 size = [1600, 900]
 screen = pygame.display.set_mode(size)
-
 
 
 
@@ -28,7 +27,7 @@ balls = [player, ball]
 block = (4, [1600/2, 800])
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[1600-200, 0])
-deaths = Hud("Deaths: ",[1600-180,0])
+deaths= Hud("Deaths: ",[1600-180,0])
 
 crash_sound = pygame.mixer.Sound("welcome.wav")
 pygame.mixer.music.load('welcome.wav')

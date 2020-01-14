@@ -1,23 +1,24 @@
 Level Layout Idea 1
 
 ####################
-#   Generator      #         
-#BBBBBBBBBBBBBgBBBB#
-#gggGgggggggggggggg#
-#RRRRRRRRRRRRrRRRRR#
-#bbbbbbbbBbbbbbbbbb#
-#RrRRRRRRrrrbbbbbRR# 
-#GBRGBRGBRGBRGBRGBR#
-#        2         # 
-#        2         # 
-#        2         #
-#        2         #
-#        2         #
-#        2         #
-#        2         #
-#        2         #
-#        2         #
-#        2         #
-#        2         #
-********************
-####################
+#   Generator       # Creates new block layer         
+#BBBBBBBBBBBBBgBBBB #
+#gggGgggggggggggggg #
+#RRRRRRRRRRRRrRRRRR # abnormalitys are "weakpoints"
+#bbbbbbbbBbbbbbbbbb #
+#RrRRRRRRrrrbbbbbRR # 
+#GBRGBRGBRGBRGBRGBR #
+#        2          # 
+#        2          # "2" represents empty space that will be filled by blocks
+#        2          #
+#        2          #
+#        2          #
+#        2          #
+#        2          #
+#        2          #
+#        2          #
+#        2          #
+#        2          #
+********************* "kill" line that adds a death when breeched by a block
+                     space with platform
+##################### bottom that adds a death when hit by ball and an insta-death when hit by block
