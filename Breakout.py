@@ -2,14 +2,14 @@
 import pygame, sys, math, random
 from Ball import *
 from Platform import *
-#from Hud import *
+from Hud import *
 from Block import *
 pygame.init()
 if not pygame.font: print("Warning, fonts disabled")
 
 clock = pygame.time.Clock();
 
-size = [1600, 900]
+size = [1000, 900]
 screen = pygame.display.set_mode(size)
 
 
@@ -36,6 +36,10 @@ pygame.mixer.music.play(1)
 kills = 0
 time = 0
 
+blocks = []
+blockTimer = 0
+blockTimerMax = 60*2
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -53,6 +57,16 @@ while True:
             player.goMouse(event.pos)
     time += 1
     
+    
+    if blockTimer < blockTimerMax:
+        blockTimer += 1
+    else:
+        blockTimer = 0
+        for block in blocks:
+            block.moveUp()
+        for i in range(10):
+            blocks += [Block([i*100, 900-50])]
+    
             
     for ball in balls:
         ball.update(size)
@@ -67,6 +81,8 @@ while True:
     screen.fill((100, 100, 100))
     for ball in balls:
         screen.blit(ball.image, ball.rect)
+    for block in blocks:
+        screen.blit(block.image, block.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
     pygame.display.flip()

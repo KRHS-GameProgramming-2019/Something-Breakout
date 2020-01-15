@@ -1,55 +1,29 @@
 #this will be the class block
 from Ball import *
 
-class test(Ball):
-    def __init__(self, maxSpeed=4, startPos=[1600/2,100]):
-        Ball.__init__(self, [0,0], startPos)
-        self.frame = 0
-        self.frameMax = len(self.images) -1
-        self.image = pygame.image.load("images/platform/IMG_0724.JPG")
-        self.image = pygame.transform.scale(self.image, [250,50])
-        self.rect = self.image.get_rect()
-
-        self.maxSpeed = maxSpeed
-        self.kind = "Ball"
+class Block():
+    def __init__(self, startPos=[0,0]):
+        self.image = pygame.image.load("images/blocks/blue.png")
+        self.rect = self.image.get_rect(topleft = startPos)
+        self.kind = "blue"
         
-def update(self, size = [1000,100]):
-        self.move()
-        self.wallCollide(size)
-        
-def wallCollide(self, size):
-        width = size[0]
-        height = size[1]
-        if not self.didBounceY:
-            if self.rect.bottom > height:
-                self.speedy = -self.speedy
-                self.move()
-                self.speedy = 0
-                self.didBounceY = True
-            if self.rect.top < 0:
-                self.speedy = -self.speedy
-                self.move()
-                self.speedy = 0
-                self.didBounceY = True
-        if not self.didBounceX:
-            if self.rect.right > width:
-                self.speedx = -self.speedx
-                self.move()
-                self.speedx = 0
-                self.didBounceX = True
-            if self.rect.left < 0:
-                self.speedx = -self.speedx
-                self.move()
-                self.speedx = 0
-                self.didBounceX = True
-            
-def ballCollide(self, other):
-        if self != other:
-            if self.rect.right > other.rect.left:
-                if self.rect.left < other.rect.right:
-                    if self.rect.bottom > other.rect.top:
-                        if self.rect.top < other.rect.bottom:
-                            if self.getDist(other) < self.rad + other.rad:
-                                return True
-        return False
+    def getDist(self, other):
+        x1 = self.rect.centerx
+        x2 = other.rect.centerx
+        y1 = self.rect.centery
+        y2 = other.rect.centery
+        return math.sqrt((x2-x1)**2 + (y2-y1)**2)
+     
+    def moveUp(self):
+        self.rect = self.rect.move([0,-50])
+    
+    def ballCollide(self, other):
+            if self != other:
+                if self.rect.right > other.rect.left:
+                    if self.rect.left < other.rect.right:
+                        if self.rect.bottom > other.rect.top:
+                            if self.rect.top < other.rect.bottom:
+                                if self.getDist(other) < self.rad + other.rad:
+                                    return True
+            return False
 
