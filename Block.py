@@ -17,17 +17,9 @@ class Block():
     def moveUp(self):
         self.rect = self.rect.move([0,-50])
 
-    def ballCollide(self, other):
-        if self != other:
-            if self.rect.right > other.rect.centerx:
-                if self.rect.left < other.rect.centerx:
-                    if self.rect.bottom > other.rect.centery:
-                        if self.rect.top < other.rect.centery:
-                            self.living = False
-                            return True
-        return False
     
-    def blockCollide(self, other):
+    
+    def ballCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:
@@ -37,14 +29,4 @@ class Block():
                             return True
         return False
     
-    def ballCollide(self, other):
-            if self != other:
-                if self.rect.right > other.rect.left:
-                    if self.rect.left < other.rect.right:
-                        if self.rect.bottom > other.rect.top:
-                            if self.rect.top < other.rect.bottom:
-                                if self.getDist(other) < self.rad + other.rad:
-                                    return True
-            return False
-
     

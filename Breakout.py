@@ -39,7 +39,7 @@ time = 0
 
 blocks = []
 blockTimer = 0
-blockTimerMax = 100*2
+blockTimerMax = 60*2
 
 while True:
     for event in pygame.event.get():
@@ -60,7 +60,7 @@ while True:
     
     
     if blockTimer < blockTimerMax:
-        blockTimer += .09
+        blockTimer += 1
     else:
         blockTimer = 0
         for block in blocks:
@@ -68,18 +68,17 @@ while True:
         for i in range(10):
             blocks += [Block([i*100, 900-50])]
             
-    if block.canHit:
-            for block in blocks:
-                if block.ballCollide(pick):
-                    balls.remove(ball)
+    for block in blocks:
+        if block.ballCollide(ball):
+            blocks.remove(block)
+            ball.sqCollide(block)
     
             
-
-        
+    ball.update(size)
+    ball.sqCollide(player)
     timer.update(int(time/60  ))
     score.update(kills)
-        
-    ball.sqCollide(player)
+   
             
             
             
