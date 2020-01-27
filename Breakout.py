@@ -39,7 +39,7 @@ time = 0
 
 blocks = []
 blockTimer = 0
-blockTimerMax = 60*2
+blockTimerMax = 100*2
 
 while True:
     for event in pygame.event.get():
@@ -60,7 +60,7 @@ while True:
     
     
     if blockTimer < blockTimerMax:
-        blockTimer += 1
+        blockTimer += .09
     else:
         blockTimer = 0
         for block in blocks:
