@@ -16,10 +16,10 @@ screen = pygame.display.set_mode(size)
 
 
 
-#balls += [Ball(pics[random.randint(0, len(pics)-1)], 
+# += [Ball(pics[random.randint(0, len(pics)-1)], 
                 #[random.randint(-7,7), random.randint(-7,7)],
                 #[random.randint(100, 800), random.randint(100, 500)])
-         #]       
+        #]       
 
 counter = 1;
 player = Platform(4, [1600/2, 800])
@@ -27,7 +27,7 @@ ball = Ball([5,5], [900/2,100])
 balls = [player, ball]
 block = (4, [1600/2, 800])
 score = Hud("Score: ", [0,0])
-timer = Hud("Time: ",[1600-200, 0])
+timer = Hud("Time: ",[1000-200, 0])
 deaths= Hud("Deaths: ",[1600-180,0])
 
 crash_sound = pygame.mixer.Sound("welcome.wav")
@@ -67,10 +67,14 @@ while True:
             block.moveUp()
         for i in range(10):
             blocks += [Block([i*100, 900-50])]
+            
+    if block.canHit:
+            for block in blocks:
+                if block.ballCollide(pick):
+                    balls.remove(ball)
     
             
-    for ball in balls:
-        ball.update(size)
+
         
     timer.update(int(time/60  ))
     score.update(kills)
