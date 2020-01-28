@@ -1,5 +1,5 @@
 # This is our ball 
-import pygame, sys, math
+import pygame, sys, math, random
 class Ball():
     def __init__(self, speed = [0,0], startPos=[0,0]):
         self.images = [pygame.image.load("images/gameBall/OrangeBall.png")]
@@ -83,15 +83,59 @@ class Ball():
                 if self.rect.left < other.rect.right:
                     if self.rect.bottom > other.rect.top:
                         if self.rect.top < other.rect.bottom:
-                                if not self.didBounceX:
-                                    self.speedx = -self.speedx
-                                    self.didBounceX = True
-                                if not self.didBounceY:
-                                    self.speedy = -self.speedy
-                                    self.didBounceY = True
+                            #------HIT---------
+                            if self.speedy > 0 and self.speedx > 0: # heading down right
+                                xdiff = other.rect.top - self.rect.centery
+                                ydiff = other.rect.left - self.rect.centerx
+                                if xdiff >= ydiff:
+                                    if not self.didBounceX:
+                                        self.speedx = -self.speedx
+                                        self.didBounceX = True
+                                else:
+                                    if not self.didBounceY:
+                                        self.speedy = -self.speedy
+                                        self.didBounceY = True
+                            if self.speedy > 0 and self.speedx < 0: # heading down left
+                                xdiff = abs(other.rect.top - self.rect.centery)
+                                ydiff = abs(other.rect.right - self.rect.centerx)
+                                if xdiff >= ydiff:
+                                    if not self.didBounceX:
+                                        self.speedx = -self.speedx
+                                        self.didBounceX = True
+                                else:
+                                    if not self.didBounceY:
+                                        self.speedy = -self.speedy
+                                        self.didBounceY = True      
+                            if self.speedy < 0 and self.speedx > 0: # heading up right
+                                xdiff = other.rect.top - self.rect.centery
+                                ydiff = other.rect.left - self.rect.centerx
+                                if xdiff >= ydiff:
+                                    if not self.didBounceX:
+                                        self.speedx = -self.speedx
+                                        self.didBounceX = True
+                                else:
+                                    if not self.didBounceY:
+                                        self.speedy = -self.speedy
+                                        self.didBounceY = True
+                            if self.speedy < 0 and self.speedx < 0: # heading up left
+                                xdiff = abs(other.rect.top - self.rect.centery)
+                                ydiff = abs(other.rect.right - self.rect.centerx)
+                                if xdiff >= ydiff:
+                                    if not self.didBounceX:
+                                        self.speedx = -self.speedx
+                                        self.didBounceX = True
+                                else:
+                                    if not self.didBounceY:
+                                        self.speedy = -self.speedy
+                                        self.didBounceY = True  
+                        
+                                
+                                    
                                 return True
         return False
-                            
+        
+
+                             
     def getDist(self, other):
         x1 = self.rect.centerx
         x2 = other.rect.centerx
