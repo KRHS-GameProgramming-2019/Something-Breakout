@@ -38,7 +38,7 @@ kills = 0
 time = 0
 
 blocks = []
-blockTimer = 0
+blockTimer = 120
 blockTimerMax = 60*2
 
 while True:
@@ -91,4 +91,4 @@ while True:
     screen.blit(timer.image, timer.rect)
     pygame.display.flip()
     clock.tick(60)
-    print(clock.get_fps())
+#   print(clock.get_fps())
