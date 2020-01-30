@@ -2,11 +2,9 @@ import pygame, sys, math
 # this will be the platform
 from Ball import *
 
-class Platform(Ball):
+class Platform():
     def __init__(self, maxSpeed=4, startPos=[1600/2,100]):
-        Ball.__init__(self, [0,0], startPos)
-        self.frame = 0
-        self.frameMax = len(self.images) -1
+        
         self.image = pygame.image.load("images/platform/IMG_0724.JPG")
         self.image = pygame.transform.scale(self.image, [250,50])
         self.rect = self.image.get_rect()

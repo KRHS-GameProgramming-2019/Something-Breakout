@@ -1,18 +1,25 @@
 # This is our ball 
 import pygame, sys, math, random
 class Ball():
-    def __init__(self, speed = [0,0], startPos=[0,0]):
-        self.images = [pygame.image.load("images/gameBall/OrangeBall.png")]
-        self.frame = 0
-        self.frameMax = len(self.images) -1
-        self.image = self.images[self.frame]
+    def __init__(self, speed, angle, startPos=[0,0]):
+        self.base_image = pygame.image.load("images/gameBall/OrangeBall.png")
+        self.image = self.base_image 
         self.rect = self.image.get_rect()
-        self.speedx = speed[0]
-        self.speedy = speed[1]
-        self.speed = [self.speedx, self.speedy]
+        self.speed = speed
+        self.angle = angle
+        self.speedx = math.cos(math.radians(self.angle))*self.speed
+        self.speedy = -math.sin(math.radians(self.angle))*self.speed
         self.rad = (self.rect.height/2 + self.rect.width/2)/2
 
         self.rect = self.rect.move(startPos)
+        self.pos = startPos
+        
+        self.rot_angle = self.angle
+        rot_image = pygame.transform.rotate(self.base_image, self.rot_angle)
+        rot_rect = self.rect.copy()
+        rot_rect.center = rot_image.get_rect().center
+        rot_image = rot_image.subsurface(rot_rect)
+        self.image = rot_image
         
         self.didBounceX = False
         self.didBounceY = False
@@ -20,6 +27,8 @@ class Ball():
         self.kind = "ball"
         self.animationTimer = 0
         self.animationTimerMax = 60/1
+        
+        self.randomness = 10
      
     def update(self, size):
         self.move()
@@ -27,39 +36,43 @@ class Ball():
         self.animate()
         
     def move(self):
+        print ("Angle: ",self.angle)
         self.didBounceX = False
         self.didBounceY = False
-        self.speed = [self.speedx, self.speedy]
-        self.rect = self.rect.move(self.speed)
-
+        self.pos[0] += self.speedx
+        self.pos[1] += self.speedy
+        self.rect.center = self.pos
+        
     def animate(self):
-        self.animationTimer += 1
-        if self.animationTimer >= self.animationTimerMax:
-            self.animationTimer = 0
-            if self.frame >= self.frameMax:
-                self.frame = 0
-            else:
-                self.frame += 1
-            self.image = self.images[self.frame]
+        if self.angle != self.rot_angle:
+            self.rot_angle = self.angle
+            rot_image = pygame.transform.rotate(self.base_image, self.rot_angle)
+            rot_rect = self.rect.copy()
+            rot_rect.center = rot_image.get_rect().center
+            rot_image = rot_image.subsurface(rot_rect)
+            self.image = rot_image
 
     def wallCollide(self, size):
         width = size[0]
         height = size[1]
         if not self.didBounceY:
             if self.rect.bottom > height:
-                self.speedy = -self.speedy
-                self.didBounceY = True
+                self.angle = -self.angle + random.randint(-self.randomness,self.randomness)
+                self.speedx = math.cos(math.radians(self.angle))*self.speed
+                self.speedy = -math.sin(math.radians(self.angle))*self.speed
             if self.rect.top < 0:
-                #TopCollide= TopCollide+1
-                self.speedy = -self.speedy
-                self.didBounceY = True
+                self.angle = -self.angle + random.randint(-self.randomness,self.randomness)
+                self.speedx = math.cos(math.radians(self.angle))*self.speed
+                self.speedy = -math.sin(math.radians(self.angle))*self.speed
         if not self.didBounceX:
             if self.rect.right > width:
-                self.speedx = -self.speedx
-                self.didBounceX = True
+                self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)
+                self.speedx = math.cos(math.radians(self.angle))*self.speed
+                self.speedy = -math.sin(math.radians(self.angle))*self.speed
             if self.rect.left < 0:
-                self.speedx = -self.speedx
-                self.didBounceX = True
+                self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)
+                self.speedx = math.cos(math.radians(self.angle))*self.speed
+                self.speedy = -math.sin(math.radians(self.angle))*self.speed
             
     def ballCollide(self, other):
         if self != other:
@@ -84,54 +97,16 @@ class Ball():
                     if self.rect.bottom > other.rect.top:
                         if self.rect.top < other.rect.bottom:
                             #------HIT---------
-                            if self.speedy > 0 and self.speedx > 0: # heading down right
-                                xdiff = other.rect.top - self.rect.centery
-                                ydiff = other.rect.left - self.rect.centerx
-                                if xdiff >= ydiff:
-                                    if not self.didBounceX:
-                                        self.speedx = -self.speedx
-                                        self.didBounceX = True
-                                else:
-                                    if not self.didBounceY:
-                                        self.speedy = -self.speedy
-                                        self.didBounceY = True
-                            if self.speedy > 0 and self.speedx < 0: # heading down left
-                                xdiff = abs(other.rect.top - self.rect.centery)
-                                ydiff = abs(other.rect.right - self.rect.centerx)
-                                if xdiff >= ydiff:
-                                    if not self.didBounceX:
-                                        self.speedx = -self.speedx
-                                        self.didBounceX = True
-                                else:
-                                    if not self.didBounceY:
-                                        self.speedy = -self.speedy
-                                        self.didBounceY = True      
-                            if self.speedy < 0 and self.speedx > 0: # heading up right
-                                xdiff = other.rect.top - self.rect.centery
-                                ydiff = other.rect.left - self.rect.centerx
-                                if xdiff >= ydiff:
-                                    if not self.didBounceX:
-                                        self.speedx = -self.speedx
-                                        self.didBounceX = True
-                                else:
-                                    if not self.didBounceY:
-                                        self.speedy = -self.speedy
-                                        self.didBounceY = True
-                            if self.speedy < 0 and self.speedx < 0: # heading up left
-                                xdiff = abs(other.rect.top - self.rect.centery)
-                                ydiff = abs(other.rect.right - self.rect.centerx)
-                                if xdiff >= ydiff:
-                                    if not self.didBounceX:
-                                        self.speedx = -self.speedx
-                                        self.didBounceX = True
-                                else:
-                                    if not self.didBounceY:
-                                        self.speedy = -self.speedy
-                                        self.didBounceY = True  
-                        
-                                
-                                    
-                                return True
+                            xdiff = abs(self.rect.centerx - other.rect.centerx)
+                            if xdiff > other.rect.width/2: #Leftg/Right
+                                self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)
+                                self.speedx = math.cos(math.radians(self.angle))*self.speed
+                                self.speedy = -math.sin(math.radians(self.angle))*self.speed
+                            else:
+                                self.angle = -self.angle + random.randint(-self.randomness,self.randomness)
+                                self.speedx = math.cos(math.radians(self.angle))*self.speed
+                                self.speedy = -math.sin(math.radians(self.angle))*self.speed
+                            return True
         return False
         
 
