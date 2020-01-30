@@ -28,5 +28,3 @@ class Block():
                             self.living = False
                             return True
         return False
-    
-    
