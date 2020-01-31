@@ -76,7 +76,7 @@ class Ball():
                                     self.didBounceY = True
                                 return True
         return False
-        
+
     def sqCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
