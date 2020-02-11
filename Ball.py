@@ -99,11 +99,11 @@ class Ball():
                             #------HIT---------
                             xdiff = abs(self.rect.centerx - other.rect.centerx)
                             if xdiff > other.rect.width/2: #Leftg/Right
-                                self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)
+                                self.angle = -self.angle+180
                                 self.speedx = math.cos(math.radians(self.angle))*self.speed
                                 self.speedy = -math.sin(math.radians(self.angle))*self.speed
                             else:
-                                self.angle = -self.angle + random.randint(-self.randomness,self.randomness)
+                                self.angle = -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               self.angle
                                 self.speedx = math.cos(math.radians(self.angle))*self.speed
                                 self.speedy = -math.sin(math.radians(self.angle))*self.speed
                             return True
