@@ -22,7 +22,7 @@ screen = pygame.display.set_mode(size)
         #]       
 
 counter = 1;
-player = Platform(4, [1600/2, 800])
+player = Platform(4, 800, 800)
 ball = Ball(5,-45, [900/2,100])
 balls = [player, ball]
 block = (4, [1600/2, 800])
