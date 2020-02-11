@@ -15,12 +15,14 @@ class Hud():
         self.baseText = baseText
         self.image = self.font.render("Score: 0", 1, (0, 0, 0))
         self.rect = self.image.get_rect(topleft = startPos)
+        self.image = self.font.render("Deaths: 0", 1, (0, 0, 0))
+        self.rect = self.image.get_rect(topleft = startPos)
     
     def update(self, score):
         text = self.baseText + str(score)
         self.image = self.font.render(text , 1, (0, 0, 0))
         self.rect = self.image.get_rect(topleft = self.rect.topleft)
-
+        
     def die(self):
         in_file = open(self.file, "r")
         count = int(in_file.read())
@@ -42,11 +44,11 @@ if __name__ == "__main__":
     WIDTH = 320
     HEIGHT = 260
     windowSurface = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
-
+    
     windowSurface.fill(BLACK)
     
     hud = Hud("Deaths")
-
+    
     while True:
         events = pygame.event.get()
         for event in events:

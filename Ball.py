@@ -61,9 +61,10 @@ class Ball():
                 self.speedx = math.cos(math.radians(self.angle))*self.speed
                 self.speedy = -math.sin(math.radians(self.angle))*self.speed
             if self.rect.top < 0:
-                self.angle = -self.angle + random.randint(-self.randomness,self.randomness)
-                self.speedx = math.cos(math.radians(self.angle))*self.speed
-                self.speedy = -math.sin(math.radians(self.angle))*self.speed
+                self.angle = self.angle
+                self.speedx = self.speedx
+                self.speedy = self.speedy
+                self.topCollision = True
         if not self.didBounceX:
             if self.rect.right > width:
                 self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)

@@ -28,7 +28,7 @@ balls = [player, ball]
 block = (4, [1600/2, 800])
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[1000-200, 0])
-deaths= Hud("Deaths: ",[1600-180,0])
+death = Hud("Deaths: ",[200, 0])
 
 crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
 #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
@@ -36,6 +36,7 @@ crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
 
 kills = 0
 time = 0
+deaths = 0
 
 blocks = []
 blockTimer = 120
@@ -72,9 +73,14 @@ while True:
         if block.ballCollide(ball):
             blocks.remove(block)
             ball.sqCollide(block)
-            pygame.mixer.music.load('audioFiles/effects/testSoundEdit.wav')
-            pygame.mixer.music.play(1)
+            #pygame.mixer.music.load('audioFiles/effects/testSoundEdit.wav')
+            #pygame.mixer.music.play(1)
             kills += 1
+            
+    #for ball in balls:
+        #if self.topCollision = True:
+            #balls.remove(ball)
+        
 
     
             
@@ -82,6 +88,7 @@ while True:
     ball.sqCollide(player)
     timer.update(int(time/60  ))
     score.update(kills)
+    death.update(deaths)
    
             
             
@@ -93,7 +100,7 @@ while True:
         screen.blit(block.image, block.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
-    screen.blit(deaths.image, deaths.rect)
+    screen.blit(death.image, death.rect)
     pygame.display.flip()
     clock.tick(60)
 #   print(clock.get_fps())
