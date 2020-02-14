@@ -13,16 +13,13 @@ clock = pygame.time.Clock();
 size = [1000, 900]
 screen = pygame.display.set_mode(size)
 
-
-
-
 # += [Ball(pics[random.randint(0, len(pics)-1)], 
                 #[random.randint(-7,7), random.randint(-7,7)],
                 #[random.randint(100, 800), random.randint(100, 500)])
         #]       
 
 counter = 1;
-player = Platform(4, 800, 800)
+player = Platform(800, 800)
 ball = Ball(5,-45, [900/2,100])
 balls = [player, ball]
 block = (4, [1600/2, 800])
