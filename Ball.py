@@ -4,14 +4,13 @@ class Ball():
     def __init__(self, speed, angle, startPos=[0,0]):
         self.base_image = pygame.image.load("images/gameBall/OrangeBall.png")
         self.image = self.base_image 
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect(topleft = startPos)
         self.speed = speed
         self.angle = angle
         self.speedx = math.cos(math.radians(self.angle))*self.speed
         self.speedy = -math.sin(math.radians(self.angle))*self.speed
         self.rad = (self.rect.height/2 + self.rect.width/2)/2
 
-        self.rect = self.rect.move(startPos)
         self.pos = startPos
         
         self.rot_angle = self.angle
@@ -32,8 +31,9 @@ class Ball():
      
     def update(self, size):
         self.move()
-        self.wallCollide(size)
+        isDead = self.wallCollide(size)
         self.animate()
+        return isDead
         
     def move(self):
         print ("Angle: ",self.angle)
@@ -61,10 +61,7 @@ class Ball():
                 self.speedx = math.cos(math.radians(self.angle))*self.speed
                 self.speedy = -math.sin(math.radians(self.angle))*self.speed
             if self.rect.top < 0:
-                self.angle = self.angle
-                self.speedx = self.speedx
-                self.speedy = self.speedy
-                self.topCollision = True
+                return True
         if not self.didBounceX:
             if self.rect.right > width:
                 self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)
@@ -74,6 +71,7 @@ class Ball():
                 self.angle = -self.angle+180 +  random.randint(-self.randomness,self.randomness)
                 self.speedx = math.cos(math.radians(self.angle))*self.speed
                 self.speedy = -math.sin(math.radians(self.angle))*self.speed
+        return False
             
     def ballCollide(self, other):
         if self != other:

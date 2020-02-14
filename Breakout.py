@@ -22,7 +22,7 @@ screen = pygame.display.set_mode(size)
         #]       
 
 counter = 1;
-player = Platform(4, 800, 800)
+player = Platform(4, [1600/2, 800])
 ball = Ball(5,-45, [900/2,100])
 balls = [player, ball]
 block = (4, [1600/2, 800])
@@ -76,15 +76,17 @@ while True:
             #pygame.mixer.music.load('audioFiles/effects/testSoundEdit.wav')
             #pygame.mixer.music.play(1)
             kills += 1
-            
-    #for ball in balls:
-        #if self.topCollision = True:
-            #balls.remove(ball)
         
+    #for ball in balls:
+        #if  
 
-    
-            
-    ball.update(size)
+
+    if ball.update(size):
+        print("DEAD")
+        deaths+=1
+        ball = Ball(5,-45, [900/2,100])
+        balls = [player, ball]
+
     ball.sqCollide(player)
     timer.update(int(time/60  ))
     score.update(kills)
