@@ -13,9 +13,6 @@ clock = pygame.time.Clock();
 size = [1000, 900]
 screen = pygame.display.set_mode(size)
 
-
-
-
 # += [Ball(pics[random.randint(0, len(pics)-1)], 
                 #[random.randint(-7,7), random.randint(-7,7)],
                 #[random.randint(100, 800), random.randint(100, 500)])
