@@ -29,7 +29,7 @@ class Ball():
         
         self.randomness = 10
      
-        Invoke("respawnMethodName", 5);
+#        Invoke("respawnMethodName", 5);
 
     def update(self, size):
         self.move()
