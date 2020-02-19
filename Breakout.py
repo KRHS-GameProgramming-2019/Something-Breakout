@@ -27,7 +27,7 @@ score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[1000-200, 0])
 death = Hud("Deaths: ",[380, 0])
 
-crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
+#crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
 #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
 #pygame.mixer.music.play(-1)
 
@@ -36,8 +36,8 @@ time = 0
 deaths = 0
 
 blocks = []
-blockTimer = 120
-blockTimerMax = 60*5
+blockTimer = 0
+blockTimerMax = 60*7
 
 while True:
     for event in pygame.event.get():
@@ -54,6 +54,7 @@ while True:
                 #player.goKey("sright")
         elif event.type == pygame.MOUSEMOTION:
             player.goMouse(event.pos)
+ #       elif event.type == pygame.
     time += 1
     
     
