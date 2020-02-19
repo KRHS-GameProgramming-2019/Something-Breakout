@@ -70,17 +70,15 @@ while True:
         if block.ballCollide(ball):
             blocks.remove(block)
             ball.sqCollide(block)
-            #pygame.mixer.music.load('audioFiles/effects/testSoundEdit.wav')
+            #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
             #pygame.mixer.music.play(1)
-            kills += 1
-        
-    #for ball in balls:
-        #if  
-
+            kills += 10
 
     if ball.update(size):
         print("DEAD")
         deaths+=1
+        pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
+        pygame.mixer.music.play(1)
         ball = Ball(5,-45, [900/2,100])
         balls = [player, ball]
 
@@ -89,9 +87,6 @@ while True:
     score.update(kills)
     death.update(deaths)
    
-            
-            
-            
     screen.fill((100, 100, 100))
     for ball in balls:
         screen.blit(ball.image, ball.rect)
