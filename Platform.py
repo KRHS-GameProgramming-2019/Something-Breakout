@@ -29,6 +29,11 @@ class Platform():
         self.move()
         self.wallCollide(size)
         
+        
+      
+        
+        
+    
     def wallCollide(self, size):
         width = size[0]
         height = size[1]
