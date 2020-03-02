@@ -54,7 +54,8 @@ while True:
                 #player.goKey("sright")
         elif event.type == pygame.MOUSEMOTION:
             player.goMouse(event.pos)
- #       elif event.type == pygame.
+        elif event.type == pygame.MOUSEBUTTONDOWN: 
+            pass
     time += 1
     
     
