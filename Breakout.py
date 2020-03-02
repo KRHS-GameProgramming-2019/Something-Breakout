@@ -25,7 +25,7 @@ balls = [player, ball]
 block = (4, [1600/2, 800])
 score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[1000-200, 0])
-death = Hud("Deaths: ",[200, 0])
+death = Hud("Deaths: ",[380, 0])
 
 #crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
 #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
@@ -79,8 +79,8 @@ while True:
     if ball.update(size):
         print("DEAD")
         deaths+=1
-        pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
-        pygame.mixer.music.play(1)
+        #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
+        #pygame.mixer.music.play(1)
         ball = Ball(5,-45, [900/2,100])
         balls = [player, ball]
 
