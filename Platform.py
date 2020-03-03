@@ -30,8 +30,6 @@ class Platform():
         self.wallCollide(size)
         
         
-      
-        
         
     
     def wallCollide(self, size):
