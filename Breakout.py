@@ -10,7 +10,7 @@ if not pygame.font: print("Warning, fonts disabled")
 
 clock = pygame.time.Clock();
 
-size = [1000, 900]
+size = [500, 900]
 screen = pygame.display.set_mode(size)
 
 # += [Ball(pics[random.randint(0, len(pics)-1)], 
@@ -78,7 +78,7 @@ while True:
 
     if ball.update(size):
         print("DEAD")
-        deaths+=1
+        deaths += 1
         #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
         #pygame.mixer.music.play(1)
         ball = Ball(5,-45, [900/2,100])
