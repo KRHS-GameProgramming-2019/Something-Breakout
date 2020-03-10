@@ -1,12 +1,35 @@
-    #this will be the class block
 from Ball import *
 
 class Block():
     def __init__(self, startPos=[0,0], color="blue"):
         if color == "blue":
             self.image = pygame.image.load("images/blocks/blue.png")
-        self.rect = self.image.get_rect(topleft = startPos)
-        self.kind = "blue"
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "blue"
+        if color == "red":
+            self.image = pygame.image.load("images/blocks/Red.png")
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "red"
+        if color == "orange":
+            self.image = pygame.image.load("images/blocks/Orange.png")
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "orange"
+        if color == "yellow":
+            self.image = pygame.image.load("images/blocks/Yellow.png")
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "yellow"
+        if color == "green":
+            self.image = pygame.image.load("images/blocks/Green.png")
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "green"
+        if color == "purple":
+            self.image = pygame.image.load("images/blocks/Purple.png")
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "purple"
+        if color == "pink":
+            self.image = pygame.image.load("images/blocks/Pink.png")
+            self.rect = self.image.get_rect(topleft = startPos)
+            self.kind = "pink"
         
     def getDist(self, other):
         x1 = self.rect.centerx
