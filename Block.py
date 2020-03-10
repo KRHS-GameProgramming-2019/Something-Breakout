@@ -3,7 +3,7 @@ from Ball import *
 
 class Block():
     def __init__(self, startPos=[0,0], color="blue"):
-        if color == "blue":
+        if color == "1":
             self.image = pygame.image.load("images/blocks/blue.png")
         self.rect = self.image.get_rect(topleft = startPos)
         self.kind = "blue"
@@ -18,7 +18,11 @@ class Block():
     def moveUp(self):
         self.rect = self.rect.move([0,-50])
 
-    
+    1=blue
+    2=red
+    3=green
+    4=yellow
+    5=orange
     
     def ballCollide(self, other):
         if self != other:
