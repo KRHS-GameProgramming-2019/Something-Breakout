@@ -38,7 +38,7 @@ class Ball():
         return isDead
         
     def move(self):
-        print ("Angle: ",self.angle)
+        #print ("Angle: ",self.angle)
         self.didBounceX = False
         self.didBounceY = False
         self.pos[0] += self.speedx

@@ -29,7 +29,7 @@ score = Hud("Score: ", [0,0])
 timer = Hud("Time: ",[1000-200, 0])
 death = Hud("Deaths: ",[380, 0])
 
-walls = loadLevel("levels/1.lvl")
+
 
 #crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
 #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
@@ -39,9 +39,13 @@ kills = 0
 time = 0
 deaths = 0
 
-blocks = []
+print("loading level")
+blocks = loadLevel("levels/1.lvl")
+print("loaded level")
+
+
 blockTimer = 0
-blockTimerMax = 60*7
+blockTimerMax = 60*3
 
 while True:
     for event in pygame.event.get():
@@ -67,28 +71,20 @@ while True:
         blockTimer += 1
     else:
         blockTimer = 0
-        for wall in walls:
-            wall.moveUp()
-        for i in range(10):
-            walls += [Wall([i*200, 900-50])]
-        #for block in blocks:
-            #block.moveUp()
+        for block in blocks:
+            block.moveUp()
         #for i in range(10):
             #blocks += [Block([i*100, 900-50])]
             
-    #for block in blocks:
-        #if block.ballCollide(ball):
-            #blocks.remove(block)
-            #ball.sqCollide(block)
-            #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
-            #pygame.mixer.music.play(1)
-            #kills += 10
-    
-    for wall in walls:
-        if wall.ballCollide(ball):
-            walls.remove(wall)
-            ball.sqCollide(wall)
+    for block in blocks:
+        if block.ballCollide(ball):
+            blocks.remove(block)
+            ball.sqCollide(block)
+            pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
+            pygame.mixer.music.play(1)
             kills += 10
+    
+    
 
     if ball.update(size):
         print("DEAD")
@@ -108,8 +104,6 @@ while True:
         screen.blit(ball.image, ball.rect)
     for block in blocks:
         screen.blit(block.image, block.rect)
-    for wall in walls:
-        screen.blit(wall.image, wall.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
     screen.blit(death.image, death.rect)

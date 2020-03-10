@@ -41,6 +41,21 @@ class Block():
     def moveUp(self):
         self.rect = self.rect.move([0,-50])
 
+    def __str__(self):
+        if self.kind == "blue":
+            return "b"
+        if self.kind == "red":
+            return "r"
+        if self.kind == "orange":
+            return "o"
+        if self.kind == "yellow":
+            return "y"
+        if self.kind == "green":
+            return "g"
+        if self.kind == "purple":
+            return "p"
+        if self.kind == "pink":
+            return "k"
     
     
     def ballCollide(self, other):
