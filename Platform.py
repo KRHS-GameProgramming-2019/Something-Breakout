@@ -4,7 +4,7 @@ from Ball import *
 
 class Platform():
     def __init__(self, maxSpeed=4, startPos=[1600/2, 200 ]):
-        self.image = pygame.image.load("images/platform/IMG_0890.PNG")
+        self.image = pygame.image.load("images/platform/IMG_0892.PNG")
         self.image = pygame.transform.scale(self.image, [250,50])
         self.rect = self.image.get_rect()
 

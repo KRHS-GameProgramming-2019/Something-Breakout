@@ -80,8 +80,6 @@ while True:
         if block.ballCollide(ball):
             blocks.remove(block)
             ball.sqCollide(block)
-            pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
-            pygame.mixer.music.play(1)
             kills += 10
     
     
