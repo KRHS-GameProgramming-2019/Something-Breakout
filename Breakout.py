@@ -31,6 +31,8 @@ death = Hud("Deaths: ",[380, 0])
 
 
 
+
+
 #crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
 #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
 #pygame.mixer.music.play(-1)
