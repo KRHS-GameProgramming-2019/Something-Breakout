@@ -30,6 +30,9 @@ class Block():
             self.image = pygame.image.load("images/blocks/Pink.png")
             self.rect = self.image.get_rect(topleft = startPos)
             self.kind = "pink"
+            
+
+
         
     def getDist(self, other):
         x1 = self.rect.centerx

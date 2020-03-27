@@ -2,7 +2,7 @@
 import pygame, sys, math, random
 class Ball():
     def __init__(self, speed, angle, startPos=[0,0]):
-        self.base_image = pygame.image.load("images/gameBall/OrangeBall.png")
+        self.base_image = pygame.image.load("images/gameBall/ballGrey.PNG")
         self.image = self.base_image 
         self.rect = self.image.get_rect(topleft = startPos)
         self.speed = speed
@@ -34,7 +34,7 @@ class Ball():
     def update(self, size):
         self.move()
         isDead = self.wallCollide(size)
-        self.animate()
+        #self.animate()
         return isDead
         
     def move(self):
@@ -45,14 +45,14 @@ class Ball():
         self.pos[1] += self.speedy
         self.rect.center = self.pos
         
-    def animate(self):
-        if self.angle != self.rot_angle:
-            self.rot_angle = self.angle
-            rot_image = pygame.transform.rotate(self.base_image, self.rot_angle)
-            rot_rect = self.rect.copy()
-            rot_rect.center = rot_image.get_rect().center
-            rot_image = rot_image.subsurface(rot_rect)
-            self.image = rot_image
+    #def animate(self):
+        #if self.angle != self.rot_angle:
+            #self.rot_angle = self.angle
+            #rot_image = pygame.transform.rotate(self.base_image, self.rot_angle)
+            #rot_rect = self.rect.copy()
+            #rot_rect.center = rot_image.get_rect().center
+            #rot_image = rot_image.subsurface(rot_rect)
+            #self.image = rot_image
 
     def wallCollide(self, size):
         width = size[0]
