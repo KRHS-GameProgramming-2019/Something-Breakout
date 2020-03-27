@@ -89,8 +89,8 @@ while True:
     if ball.update(size):
         print("DEAD")
         deaths += 1
-        #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
-        #pygame.mixer.music.play(1)
+        pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
+        pygame.mixer.music.play(1)
         ball = Ball(5,-45, [900/2,100])
         balls = [player, ball]
 
