@@ -11,7 +11,7 @@ class Hud():
             self.file = "saves/deathcounter.txt"
         pygame.font.get_fonts()
         pygame.font.match_font
-        self.font = pygame.font.Font(None, 50)
+        self.font = pygame.font.Font(None, 30)
         self.baseText = baseText
         self.image = self.font.render("Score: 0", 1, (0, 0, 0))
         self.rect = self.image.get_rect(topleft = startPos)

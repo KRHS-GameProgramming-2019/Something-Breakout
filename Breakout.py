@@ -46,8 +46,8 @@ blocks = loadLevel("levels/1.lvl")
 print("loaded level")
 
 
-blockTimer = 0
-blockTimerMax = 60*3
+blockTimer = ((60*3)*4)
+blockTimerMax = ((60*3)*4)
 
 while True:
     for event in pygame.event.get():
@@ -73,6 +73,7 @@ while True:
         blockTimer += 1
     else:
         blockTimer = 0
+        blockTimerMax= blockTimerMax - 10
         for block in blocks:
             block.moveUp()
         #for i in range(10):
