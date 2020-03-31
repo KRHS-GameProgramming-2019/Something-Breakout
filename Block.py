@@ -31,7 +31,7 @@ class Block():
             self.rect = self.image.get_rect(topleft = startPos)
             self.kind = "pink"
             
-
+self.shape = None
 
         
     def getDist(self, other):
