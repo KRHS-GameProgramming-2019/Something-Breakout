@@ -1,3 +1,4 @@
+#this loads the tetris like levels.
 import pygame, sys, math
 from Wall import *
 
