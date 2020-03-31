@@ -10,10 +10,10 @@ class Pieces():
         self.blockTimerMax = 60*3
         self.pieces = []
     
-	def loadBlocks(self, level):
-		self.blocks = loadLevel("levels/"+str(level)+".lvl")
-		self.findPieces()
-		
-	def findPieces(self):
-		self.pieces = []
-		
+    def loadBlocks(self, level):
+        self.blocks = loadLevel("levels/"+str(level)+".lvl")
+        self.findPieces()
+        
+    def findPieces(self):
+        self.pieces = []
+        
