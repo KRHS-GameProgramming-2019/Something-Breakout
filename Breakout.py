@@ -3,6 +3,7 @@ import pygame, sys, math, random
 from LevelLoader import *
 from Wall import *
 from Ball import *
+from Pieces import *
 from Hud import *
 from Platform import *
 from Hud import *
@@ -42,7 +43,8 @@ time = 0
 deaths = 0
 
 print("loading level")
-blocks = loadLevel("levels/1.lvl")
+blocks = Pieces()
+blocks.loadBlocks(1)
 print("loaded level")
 
 
@@ -74,14 +76,14 @@ while True:
     else:
         blockTimer = 0
         blockTimerMax= blockTimerMax - 10
-        for block in blocks:
+        for block in blocks.blocks:
             block.moveUp()
         #for i in range(10):
             #blocks += [Block([i*100, 900-50])]
             
-    for block in blocks:
+    for block in blocks.blocks:
         if block.ballCollide(ball):
-            blocks.remove(block)
+            blocks.blocks.remove(block)
             ball.sqCollide(block)
             kills += 10
     
@@ -103,7 +105,7 @@ while True:
     screen.fill((100, 100, 100))
     for ball in balls:
         screen.blit(ball.image, ball.rect)
-    for block in blocks:
+    for block in blocks.blocks:
         screen.blit(block.image, block.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
