@@ -27,22 +27,24 @@ def loadLevel(lev):
     
     
     for y, line in enumerate(lines):
+        newLine=[]
         for x, c in enumerate(line):
             if c == "b":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "blue")]
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "blue")]
             if c == "r":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "red")]
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "red")]
             if c == "k":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "purple")]
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "purple")]
             if c == "o":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "orange")]
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "orange")]
             if c == "y":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "yellow")]
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "yellow")]
             if c == "g":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "green")]
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "green")]
             if c == "p":
-                tiles += [Block([x*size+offset, y*size+offset+yshift], "pink")]
-            print(c, end="")
+                newLine += [Block([x*size+offset, y*size+offset+yshift], "pink")]
+        tiles+=[newLine]
+            
             
     
     return tiles
