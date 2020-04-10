@@ -76,8 +76,8 @@ while True:
     else:
         blockTimer = 0
         blockTimerMax= blockTimerMax - 10
-        for block in blocks.blocks:
-            block.moveUp()
+        blocks.moveUp()
+        print("Moving on up!")
         #for i in range(10):
             #blocks += [Block([i*100, 900-50])]
             

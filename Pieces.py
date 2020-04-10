@@ -17,3 +17,7 @@ class Pieces():
     def findPieces(self):
         self.pieces = []
         
+    def moveUp(self):
+        for block in self.blocks:
+            block.moveUp()
+        

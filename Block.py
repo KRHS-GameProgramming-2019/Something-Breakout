@@ -33,39 +33,39 @@ class Block():
         self.shape = None
 
         
-def getDist(self, other):
-	x1 = self.rect.centerx
-	x2 = other.rect.centerx
-	y1 = self.rect.centery
-	y2 = other.rect.centery
-	return math.sqrt((x2-x1)**2 + (y2-y1)**2)
-     
-def moveUp(self):
-        self.rect = self.rect.move([0,-50])
+    def getDist(self, other):
+        x1 = self.rect.centerx
+        x2 = other.rect.centerx
+        y1 = self.rect.centery
+        y2 = other.rect.centery
+        return math.sqrt((x2-x1)**2 + (y2-y1)**2)
+         
+    def moveUp(self):
+            self.rect = self.rect.move([0,-50])
 
-def __str__(self):
-	if self.kind == "blue":
-		return "b"
-	if self.kind == "red":
-		return "r"
-	if self.kind == "orange":
-		return "o"
-	if self.kind == "yellow":
-		return "y"
-	if self.kind == "green":
-		return "g"
-	if self.kind == "purple":
-		return "p"
-	if self.kind == "pink":
-		return "k"
-    
-    
-def ballCollide(self, other):
-	if self != other:
-		if self.rect.right > other.rect.left:
-			if self.rect.left < other.rect.right:
-				if self.rect.bottom > other.rect.top:
-					if self.rect.top < other.rect.bottom:
-						self.living = False
-					return True
-	return False
+    def __str__(self):
+        if self.kind == "blue":
+            return "b"
+        if self.kind == "red":
+            return "r"
+        if self.kind == "orange":
+            return "o"
+        if self.kind == "yellow":
+            return "y"
+        if self.kind == "green":
+            return "g"
+        if self.kind == "purple":
+            return "p"
+        if self.kind == "pink":
+            return "k"
+        
+        
+    def ballCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            self.living = False
+                            return True
+        return False
