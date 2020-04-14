@@ -31,7 +31,7 @@ class Block():
             self.rect = self.image.get_rect(topleft = startPos)
             self.kind = "pink"
             
-        self.shape = None
+        self.piece = []
 
         
     def getDist(self, other):
@@ -45,20 +45,24 @@ class Block():
         self.rect = self.rect.move([0,-50])
 
     def __str__(self):
+        out = "Block: "
         if self.kind == "blue":
-            return "b"
+            out += "blue"
         if self.kind == "red":
-            return "r"
+            out += "red"
         if self.kind == "orange":
-            return "o"
+            out += "orange"
         if self.kind == "yellow":
-            return "y"
+            out += "yellow"
         if self.kind == "green":
-            return "g"
+            out += "green"
         if self.kind == "purple":
-            return "p"
+            out += "purple"
         if self.kind == "pink":
-            return "k"
+            out += "pink"
+        out += ", at "
+        out += str(self.rect.topleft)
+        return out
     
     
     def ballCollide(self, other):

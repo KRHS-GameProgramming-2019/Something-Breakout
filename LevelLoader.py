@@ -33,7 +33,7 @@ def loadLevel(lev):
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "blue")]
             if c == "r":
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "red")]
-            if c == "k":
+            if c == "p":
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "purple")]
             if c == "o":
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "orange")]
@@ -41,7 +41,7 @@ def loadLevel(lev):
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "yellow")]
             if c == "g":
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "green")]
-            if c == "p":
+            if c == "k":
                 newLine += [Block([x*size+offset, y*size+offset+yshift], "pink")]
         tiles+=[newLine]
             

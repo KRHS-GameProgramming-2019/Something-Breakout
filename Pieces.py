@@ -35,8 +35,11 @@ class Pieces():
                             curKind = block.kind
                             piece += [block]
                             block.piece = piece
-                else:
-                    if curKind == block.kind:
+                elif curKind == block.kind:
+                    if lineNum == 0: 
+                        piece += [block]
+                        block.piece = piece
+                    else: 
                         if self.blocks[lineNum - 1][blockNum].kind == block.kind:
                             self.blocks[lineNum - 1][blockNum].piece += [block]
                             block.piece = self.blocks[lineNum - 1][blockNum].piece
@@ -45,5 +48,29 @@ class Pieces():
                         else:
                             piece += [block]
                             block.piece = piece
+                else:
+                    if piece not in self.pieces:
+                        self.pieces += [piece]
+                    piece = []
+                    if lineNum == 0:
+                        curKind = block.kind
+                        piece += [block]
+                        block.piece = piece
+            if piece not in self.pieces:
+                self.pieces += [piece]
+        print (str(self))
+        
+    def __str__ (self):
+        out = "-----------\n"
+        for i in self.pieces:
+            for j in i:
+                out += str(j) + "\n"
+            out += "\n"
+        out += ">>>>>>>>\n"
+        for piece in self.pieces:
+            if len (piece) > 0:
+                out += piece [0].kind + " piece, size: " + str(len(piece)) + "\n"
+        out += "--------\n\n"
+        return out
                         
         
