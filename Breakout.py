@@ -98,7 +98,7 @@ while True:
         balls = [player, ball]
 
     ball.sqCollide(player)
-    timer.update(int(time/60  ))
+    timer.update(int(time/60))
     score.update(kills)
     death.update(deaths)
    
