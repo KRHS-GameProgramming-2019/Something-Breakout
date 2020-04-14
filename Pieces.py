@@ -74,3 +74,7 @@ class Pieces():
         return out
                         
         
+    def moveUp(self):
+        for block in self.blocks:
+            block.moveUp()
+        

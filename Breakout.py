@@ -76,8 +76,8 @@ while True:
     else:
         blockTimer = 0
         blockTimerMax= blockTimerMax - 10
-        for block in blocks.blocks:
-            block.moveUp()
+        blocks.moveUp()
+        print("Moving on up!")
         #for i in range(10):
             #blocks += [Block([i*100, 900-50])]
             
@@ -98,7 +98,7 @@ while True:
         balls = [player, ball]
 
     ball.sqCollide(player)
-    timer.update(int(time/60  ))
+    timer.update(int(time/60))
     score.update(kills)
     death.update(deaths)
    
