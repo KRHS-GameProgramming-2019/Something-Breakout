@@ -51,10 +51,26 @@ print("loaded level")
 blockTimer = ((60*3)*4)
 blockTimerMax = ((60*3)*4)
 
+paused = False
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit();
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                paused = True
+                while paused:
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            sys.exit();
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_SPACE:
+                                paused = False 
+                                print("Unpause")
+                    
+                        
+                
             #if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
                 #player.goKey("left")
             #elif event.key == pygame.K_d or  event.key == pygame.K_RIGHT:
