@@ -81,12 +81,18 @@ while True:
         #for i in range(10):
             #blocks += [Block([i*100, 900-50])]
             
-    for block in blocks.blocks:
-        if block.ballCollide(ball):
-            blocks.blocks.remove(block)
-            ball.sqCollide(block)
-            kills += 10
-    
+    for line in blocks.blocks:
+        for block in line: 
+            if block.ballCollide(ball):
+                for oblock in block.piece:
+                    oblock.kill()
+                    kills += 10
+                ball.sqCollide(block)
+        
+    for lineNum, line in enumerate(blocks.blocks):
+        for block in line:
+            if not block.living:
+                blocks.blocks[lineNum].remove(block)
     
 
     if ball.update(size):
@@ -105,8 +111,9 @@ while True:
     screen.fill((100, 100, 100))
     for ball in balls:
         screen.blit(ball.image, ball.rect)
-    for block in blocks.blocks:
-        screen.blit(block.image, block.rect)
+    for line in blocks.blocks:
+        for block in line:
+            screen.blit(block.image, block.rect)
     screen.blit(score.image, score.rect)
     screen.blit(timer.image, timer.rect)
     screen.blit(death.image, death.rect)

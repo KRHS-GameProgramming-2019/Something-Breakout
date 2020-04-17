@@ -32,6 +32,7 @@ class Block():
             self.kind = "pink"
             
         self.piece = []
+        self.living = True
 
         
     def getDist(self, other):
@@ -43,6 +44,9 @@ class Block():
      
     def moveUp(self):
         self.rect = self.rect.move([0,-50])
+        
+    def kill(self):
+        self.living = False
 
     def __str__(self):
         out = "Block: "

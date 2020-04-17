@@ -108,6 +108,7 @@ class Pieces():
                         
         
     def moveUp(self):
-        for block in self.blocks:
-            block.moveUp()
+        for line in self.blocks:
+            for block in line:
+                block.moveUp()
         
