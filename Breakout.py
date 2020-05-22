@@ -35,8 +35,9 @@ death = Hud("Deaths: ",[380, 0])
 
 
 #crash_sound = pygame.mixer.Sound("audioFiles/effects/testSoundEdit.wav")
-#pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
-#pygame.mixer.music.play(-1)
+pygame.mixer.music.load('audioFiles/Tetris (Final).ogg')
+pygame.mixer.music.play(-1)
+
 
 kills = 0
 time = 0
@@ -114,8 +115,8 @@ while True:
     if ball.update(size):
         print("DEAD")
         deaths += 1
-        pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
-        pygame.mixer.music.play(1)
+        #pygame.mixer.music.load('audioFiles/effects/404 dead.ogg')
+        #pygame.mixer.music.play(1)
         ball = Ball(5,-45, [900/2,100])
         balls = [player, ball]
 
@@ -123,7 +124,9 @@ while True:
     timer.update(int(time/60))
     score.update(kills)
     death.update(deaths)
-   
+    
+
+
     screen.fill((100, 100, 100))
     for ball in balls:
         screen.blit(ball.image, ball.rect)
