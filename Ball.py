@@ -9,7 +9,7 @@ class Ball():
         self.angle = angle
         self.speedx = math.cos(math.radians(self.angle))*self.speed
         self.speedy = -math.sin(math.radians(self.angle))*self.speed
-        self.rad = (self.rect.height/2 + self.rect.width/2)/2
+        self.rad = (self.rect.height/2 + self.rect.width/1)/1
 
         self.pos = startPos
         
@@ -28,6 +28,7 @@ class Ball():
         self.animationTimerMax = 60/1
         
         self.randomness = 10
+       
      
 #        Invoke("respawnMethodName", 5);
 

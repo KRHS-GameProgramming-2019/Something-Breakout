@@ -13,7 +13,7 @@ if not pygame.font: print("Warning, fonts disabled")
 
 clock = pygame.time.Clock();
 
-size = [500, 900]
+size = [500, 700]
 screen = pygame.display.set_mode(size)
 
 # += [Ball(pics[random.randint(0, len(pics)-1)], 
