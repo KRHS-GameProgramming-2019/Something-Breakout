@@ -49,7 +49,7 @@ blocks.loadBlocks(1)
 print("loaded level")
 
 
-blockTimer = ((60*3)*4)
+blockTimer = 0
 blockTimerMax = ((60*3)*4)
 
 paused = False
